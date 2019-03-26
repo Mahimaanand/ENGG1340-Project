@@ -23,8 +23,7 @@ The four criteria on which the prospective member would be assessed are Referenc
 The weightages are as follows (out of a total of 100):
 
      Reference (10 points): 
-      If the member named in the reference is a part of the current member-list, then he will be alloted the point, 
-      else no points
+      If the member named in the reference is a part of the current member-list, then he will be alloted the point, else no points
      
      Age (20 points):
       <18 years: Membership application not applicable
@@ -51,3 +50,11 @@ The following commands would be made available:
 5. Find A val: Outputs all members with val as value of attribute A. (eg: Find Income 600,000 would output all MEMBERS with that income).
 6. Exit: Exits the program.
 
+## Notable Features
+This program will dynamically alter the weightages of the Club Skill Sports so that the Falconkeep Sanctuary Club can retain its sporting superiority and reputation of being an atheletic forerunner. If there is a deficit of skill in a certain sport category, the program would alter the weightages to give an edge to those members that could fill in the deficit.
+For example, if the average scores for a certain sport is signifcantly lesser than the rest, then the weightages would increase for that sport and decrease accordingly for the rest.
+
+This project would come with an existing member list (stored in a file). When the Exit command is given, the member list at the time would be stored into that file and read upon startup to ensure continuity.
+
+## Assumptions
+At the start of the program, the waiting list would be empty and this waiting list would be discarded at the time of exiting
