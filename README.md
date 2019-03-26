@@ -8,7 +8,6 @@ Prospective members are required to fill a form on basis of which they will be a
 ## Membership Form:
     Name:
     Reference (existing member's name):
-    Date:
     Age:
     Income:
     Club Sport Skills:
@@ -44,10 +43,10 @@ The weightages are as follows (out of a total of 100):
       
 ## User Interface
 The following commands would be made available:
-1. Make N: Creates N new membership positions that get filled up by the first N members of the waiting list.
-2. Add filename: Adds person (whose membership form is stored in the file) to waiting list at appropriate position based on points. 
-3. Remove name: Removes person whose name is given from member list and that position is filled up by the top member of waiting list.
-4. Show w/m: Outputs entire waitlist/member list into a file.
+1. Make N: Creates N new membership positions that get filled up by the first N members of the waiting list. Outputs the name of members who are added, their member IDs, and the number of vacant positions (if any)
+2. Add filename: Adds person (whose membership form is stored in the file) to waiting list at appropriate position based on point. It will print his/her points and current ranking in waiting list.
+3. Remove ID: Removes person whose ID number is given; that position is filled up by the top member of waiting list.
+4. Show w/m: (W)Outputs entire waitlist along with points and ranking into a file. (M)Outputs member list along with member ID into a file.
 5. Find A val: Outputs all members with val as value of attribute A. (eg: Find Income 600,000 would output all MEMBERS with that income).
 6. Exit: Exits the program.
 
@@ -55,7 +54,9 @@ The following commands would be made available:
 This program will dynamically alter the weightages of the Club Skill Sports so that the Falconkeep Sanctuary Club can retain its sporting superiority and reputation of being an atheletic forerunner. If there is a deficit of skill in a certain sport category, the program would alter the weightages to give an edge to those members that could fill in the deficit.
 For example, if the average scores for a certain sport is signifcantly lesser than the rest, then the weightages would increase for that sport and decrease accordingly for the rest.
 
+When the Add menu command is given, the program would check if the membership form file has valid input values.
+
 This project would come with an existing member list (stored in a file). When the Exit command is given, the member list at the time would be stored into that file and read upon startup to ensure continuity.
 
 ## Assumptions
-At the start of the program, the waiting list would be empty and this waiting list would be discarded at the time of exiting
+At the start of the program, the waiting list would be empty and this waiting list would be discarded at the time of exiting.
