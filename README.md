@@ -23,7 +23,8 @@ The four criteria on which the prospective member would be assessed are Referenc
 The weightages are as follows (out of a total of 100):
 
      Reference (10 points): 
-      If the member named in the reference is a part of the current member-list, then he will be alloted the point, else no points
+      If the member named in the reference is a part of the current member-list, then he will be alloted the point, 
+      else no points
      
      Age (20 points):
       <18 years: Membership application not applicable
