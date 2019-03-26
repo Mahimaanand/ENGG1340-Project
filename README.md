@@ -18,9 +18,6 @@ Prospective members are required to fill a form on basis of which they will be a
   Club Sports Skills (Rated out of 10 for each category):
   
     Golf
-    
     Swimming 
-    
     Squash 
-    
     Snooker
