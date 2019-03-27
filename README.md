@@ -1,9 +1,9 @@
 # Waiting List for a Club
 The Falconkeep Sanctuary Club is an extremely exclusive Hong Kong club that provides membership only to the most talented and influential individuals.
-This project relates to making and managing the waiting list and the current members list of the club. 
+This project relates to making and managing the waiting list and the current member-list of the club. 
 Additionally, it will also dynamically change point weightages to ensure a diverse pool of members.
 
-Prospective members are required to fill a form on basis of which they will be assessed and allotted a certain number of points, based on which they are ranked and given membership priority.
+Prospective members are required to fill a form on basis of which they will be assessed and allotted a certain number of points. They are ranked and given membership priority accordingly.
 
 ## Membership Form:
     Name:
@@ -43,8 +43,8 @@ The weightages are as follows (out of a total of 100):
       
 ## User Interface
 The following commands would be made available:
-1. Make N: Creates N new membership positions that get filled up by the first N members of the waiting list. Outputs the name of members who are added, their member IDs, and the number of vacant positions (if any)
-2. Add filename: Adds person (whose membership form is stored in the file) to waiting list at appropriate position based on point. It will print his/her points and current ranking in waiting list.
+1. Make N: Creates N new membership positions that get filled up by the first N members of the waiting list. Outputs the name of members who are added, their member IDs, and the number of vacant positions (if any).
+2. Add filename: Adds person (whose membership form is stored in the file) to waiting list at appropriate position based on points. It will print his/her points and current ranking in waiting list.
 3. Remove ID: Removes person whose ID number is given; that position is filled up by the top member of waiting list.
 4. Show w/m: (W)Outputs entire waitlist along with points and ranking into a file. (M)Outputs member list along with member ID into a file.
 5. Find A val: Outputs all members with val as value of attribute A. (eg: Find Income 600,000 would output all MEMBERS with that income).
