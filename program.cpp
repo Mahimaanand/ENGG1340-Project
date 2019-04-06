@@ -10,13 +10,13 @@ struct mList{
 };
 
 void WriteCache(int num, mList *h){
-  if(h==NULL){
-    return;
-  }
   ofstream fout;
   fout.open("CacheMemberList.txt");
   fout<<num<<endl;
-  mList * current = head;
+  if (num==0){
+  return;
+  }
+  mList * current = h;
   while(current->next!=NULL){
     fout<<current->m.name<<endl;
     fout<<current->m.memberID<<endl;
@@ -39,7 +39,7 @@ double weightages[4] = {10,10,10,10};
 int main(){
   mList * head = NULL;
   int numMembers;
-  ifstream fin();
+  ifstream fin;
   fin.open("CacheMemberList.txt");
   fin>>numMembers;
   for(int i=1;i<=numMembers;i++){ //READING CACHE
