@@ -4,7 +4,7 @@ using namespace std;
 class Member {
 	public:
 		int points;
-		string name, reference;
+		string name, reference, memberID;
 		bool refExist;
 		int age, income;
 		int sportScore[4];
