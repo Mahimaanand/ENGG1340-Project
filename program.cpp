@@ -66,7 +66,7 @@ int main(){
 
 
   WriteCache(numMembers, head);
-
+  if(numMembers==0) return 0;
   mList * p = head;
   head = head->next;
   delete p;
