@@ -1,4 +1,5 @@
-Name
-Member ID
-Age Income
-G Sw Sq Sn
+1
+Pranay Agarwal
+3035557806
+18 450000
+9 3 4 8
