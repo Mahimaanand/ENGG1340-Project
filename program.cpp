@@ -1,6 +1,8 @@
 #include<iostream>
 #include<fstream>
+#include<sstream>
 #include<string>
+#include<cstdlib>
 #include "member.h"
 using namespace std;
 
@@ -17,7 +19,7 @@ void WriteCache(int num, mList *h){
   return;
   }
   mList * current = h;
-  while(current->next!=NULL){
+  while(current!=NULL){
     fout<<current->m.name<<endl;
     fout<<current->m.memberID<<endl;
     fout<<current->m.age<<" "<<current->m.income<<endl;
@@ -41,18 +43,27 @@ int main(){
   int numMembers;
   ifstream fin;
   fin.open("CacheMemberList.txt");
-  fin>>numMembers;
+  string tempVal;
+  istringstream iss;
+  getline(fin, tempVal);
+  numMembers=atoi(tempVal.c_str());
   for(int i=1;i<=numMembers;i++){ //READING CACHE
     mList * p = new mList;
     getline(fin,p->m.name);
     getline(fin,p->m.memberID);
-    fin>>p->m.age;
-    fin>>p->m.income;
+    getline(fin, tempVal);
+    iss.str(tempVal);
+    iss>>p->m.age;
+    iss>>p->m.income;
+    getline(fin, tempVal);
+    iss.clear();
+    iss.str(tempVal);
     for(int i=0;i<4;i++){
-      fin>>p->m.sportScore[i];
+      iss>>p->m.sportScore[i];
     }
     p->next=head;
     head=p;
+    iss.clear();
   }
   fin.close();
 
@@ -67,9 +78,11 @@ int main(){
 
   WriteCache(numMembers, head);
   if(numMembers==0) return 0;
-  mList * p = head;
-  head = head->next;
-  delete p;
+  while(head!=NULL) {
+    mList * p = head;
+    head = head->next;
+    delete p;
+  }
   return 0;
 
 }
