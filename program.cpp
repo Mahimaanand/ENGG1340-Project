@@ -63,6 +63,23 @@ int main(){
     iss.clear();
   }
   fin.close();
+  mList * current = head;
+  double avg[4];
+  if(numMembers==0)
+  {
+  	for(int i=0;i<4;i++)
+  	Member::weightages[i]=10.0;
+  }
+  else
+  {
+  	while(current!=NULL)
+  	{
+  		for(int i=0; i<4; i++)
+  	 	avg[i]+=current->m.sportScore[i]/numMembers;
+  		current=current->next;
+  	}
+  	Member::reassignWeightages(avg);
+  }
 
 
 
