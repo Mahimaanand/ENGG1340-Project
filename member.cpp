@@ -5,28 +5,28 @@
 #include "member.h"
 using namespace std;
 
-void Member::computePoints(int weight[])
+void Member::computePoints()
 {
 	points=0;
 	if(refExist) points+=10; //REFERENCE
-	
+
 	if(age<25) points+=15;//AGE
 	else if(age<40) points+=20;
 	else if(age<50) points+=10;
-	
+
 	if(income>1000000) points+=30;//INCOME
 	else if(income>750000) points+=20;
 	else if(income>500000) points+=15;
 	else if(income>400000) points+=10;
-	
+
 	for(int i=0; i<=3; i++)
 	{
-		points+=weight[i]*sportScore[i];
+		points+=weightages[i]*sportScore[i];
 	}
 	return;
 }
 
-void Member::reassignWeightages(double avg[], double w[])
+void Member::reassignWeightages(double avg[])
 {
 	int ctr=0;
 	double sum=0;
@@ -39,15 +39,15 @@ void Member::reassignWeightages(double avg[], double w[])
 	{
 		for(int i=0;i<4;i++)
 		{
-			if(avg[i]==0) w[i]=40.0/ctr;
-			else w[i]=0;
+			if(avg[i]==0) weightages[i]=40.0/ctr;
+			else weightages[i]=0;
 		}
 		return;
 	}
 	for(int i=0; i<4; i++)
 	{
-		w[i]=1/avg[i];
-		w[i]=w[i]*40/sum;//normalising inverse of average to find final weightage
+		weightages[i]=1/avg[i];
+		weightages[i]=weightages[i]*40/sum;//normalising inverse of average to find final weightage
 	}
 	return;
 }
@@ -60,7 +60,7 @@ bool Member::readInput(string filename)
 		cout<<"Failed to open "<<filename<<endl;
 		return false;
 	}
-	getline(fin, name); 
+	getline(fin, name);
 	getline(fin, reference);
 	for(int i=0; i<name.length();i++)
 	{

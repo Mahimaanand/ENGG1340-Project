@@ -15,9 +15,6 @@ void WriteCache(int num, mList *h){
   ofstream fout;
   fout.open("CacheMemberList.txt");
   fout<<num<<endl;
-  if (num==0){
-  return;
-  }
   mList * current = h;
   while(current!=NULL){
     fout<<current->m.name<<endl;
@@ -37,7 +34,7 @@ void WriteCache(int num, mList *h){
   fout.close();
 }
 
-double weightages[4] = {10,10,10,10};
+//double weightages[4] = {10,10,10,10};
 int main(){
   mList * head = NULL;
   int numMembers;
