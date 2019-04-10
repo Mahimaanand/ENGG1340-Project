@@ -11,10 +11,10 @@ struct mList{
   mList * next;
 };
 
-void WriteCache(int num, mList *h){
+void WriteCache(int num, long int lastID, mList *h){
   ofstream fout;
   fout.open("CacheMemberList.txt");
-  fout<<num<<endl;
+  fout<<num<<" "<<lastID<<endl;
   mList * current = h;
   while(current!=NULL){
     fout<<current->m.name<<endl;
@@ -38,16 +38,24 @@ void WriteCache(int num, mList *h){
 int main(){
   mList * head = NULL;
   int numMembers;
+  long int assignID;
   ifstream fin;
   fin.open("CacheMemberList.txt");
   string tempVal;
   istringstream iss;
   getline(fin, tempVal);
-  numMembers=atoi(tempVal.c_str());
+  iss.str(tempVal);
+  iss>>numMembers;
+  iss>>assignID;
+  //assignID++;  ADD BASED ON HOW WE'RE ASSIGNING THE MEMBER ID TO MEMBERS (ADDITION BEFORE/AFTER ASSIGNNING)
+  iss.clear();
   for(int i=1;i<=numMembers;i++){ //READING CACHE
     mList * p = new mList;
     getline(fin,p->m.name);
-    getline(fin,p->m.memberID);
+    getline(fin,tempVal);
+    iss.str(tempVal);
+    iss>>p->m.memberID;
+    iss.clear();
     getline(fin, tempVal);
     iss.str(tempVal);
     iss>>p->m.age;
@@ -75,7 +83,7 @@ int main(){
   	while(current!=NULL)
   	{
   		for(int i=0; i<4; i++)
-  	 	avg[i]+=current->m.sportScore[i]/numMembers;
+  	 	 avg[i]+=current->m.sportScore[i]/numMembers;
   		current=current->next;
   	}
   	Member::reassignWeightages(avg);
@@ -90,7 +98,7 @@ int main(){
 
 
 
-  WriteCache(numMembers, head);
+  WriteCache(numMembers, assignID, head);
   if(numMembers==0) return 0;
   while(head!=NULL) {
     mList * p = head;
