@@ -88,6 +88,48 @@ int main(){
   	}
   	Member::reassignWeightages(avg);
   }
+  char cmd=' ';
+  while(cmd!='E'){
+    cout<<"WELCOME TO FALCONKEEP SANCTUARY CLUB.\nChoose one of the following commands to continue:\n";
+    cout<<"1. N: Create new membership positions.\n";
+    cout<<"2. P: Add person to waitlist.\n";
+    cout<<"3. R: Remove person from member list.\n ";
+    cout<<"4. S: Show waitlist(W) or show member list (M).\n";
+    cout<<"5. F: Find all members with a particular attribute.\n";
+    cout<<"6. E: Exit the database.\n";
+    cout<<"Your choice: ";
+    cin>>cmd;
+    if(cmd=='N'){
+      int number;
+      cout<<"Enter number of new positions: ";
+      cin>>number;
+
+    }
+    else if(cmd=='P'){
+      string person_name;
+      //search for person, calculate points, add to waitlist
+
+
+    }
+    else if(cmd=='R'){
+      long int ID;
+      cout<<"Enter ID of member to be removed: ";
+      cin>>ID;
+      //search for member ID and remove from member list
+
+    }
+    else if(cmd=='S'){
+      char list;
+      cout<<"Do you want to view waitlist or member list (W/M)?";
+      cin>>list;
+
+    }
+    else if(cmd=='F'){
+      string attribute;
+      int value;
+
+    }
+}
 
 
 
