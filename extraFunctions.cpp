@@ -70,7 +70,7 @@ void AgeSearch(mList *head, int age)
     }
     current=current->next;
   }
-  if(ctr==0) fout<<"No members found"<<endl;
+  if(ctr==0) fout<<"No members found<<endl;
   cout<<ctr<<" members found"<<endl;
   return;
 }
@@ -91,12 +91,7 @@ void NameSearch(mList *head, string name)
     }
     current=current->next;
   }
-  if(ctr==0) fout<<"No members found"<<endl;
+  if(ctr==0) fout<<"No members found<<endl;
   cout<<ctr<<" members found"<<endl;
   return;
-}
-
-int main() 
-{
-	return 0;
 }

@@ -3,6 +3,7 @@
 #include<sstream>
 #include<string>
 #include<cstdlib>
+#include<vector>
 #include "member.h"
 using namespace std;
 
@@ -36,6 +37,7 @@ void WriteCache(int num, long int lastID, mList *h){
 
 //double weightages[4] = {10,10,10,10};
 int main(){
+
   mList * head = NULL;
   int numMembers;
   long int assignID;
@@ -88,6 +90,13 @@ int main(){
   	}
   	Member::reassignWeightages(avg);
   }
+  //Waitlist defined
+  vector<Member> waitlist;
+  waitlist.reserve(40);
+
+
+  //MENU
+  int vacPositions = 0;
   char cmd=' ';
   while(cmd!='E'){
     cout<<"WELCOME TO FALCONKEEP SANCTUARY CLUB.\nChoose one of the following commands to continue:\n";
@@ -106,7 +115,40 @@ int main(){
 
     }
     else if(cmd=='P'){
-      string person_name;
+      string filename;
+      cout<<"Enter filename of person's application form:";
+      cin>>filename;
+      Member * p = new Member;
+      if  ((*p).readInput(filename)){
+        (*p).refExist=SearchReference(head, (*p).reference);
+        (*p).computePoints();
+        cout<<"Number of points: "<<(*p).points<<endl;
+        cout<<"Current rank in Waitlist = ";
+        if (waitlist.size()==0){
+         waitlist.push_back(*p);
+         cout<<"1"<<endl;
+       }
+
+        else {
+          vector<double>::const_iterator i;
+          for (i=waitlist.begin(); i<waitlist.end();i++){
+            if ((*i).points<(*p).points){
+              break;
+            }
+          }
+          if (i==waitlist.end()){
+            waitlist.push_back(*p);
+          }
+          else{
+            waitlist.insert(i,*p);
+          }
+          cout<<i-v.begin()+1<<endl;
+        }
+      }
+      else{
+        cout<<"Data is not valid. Waitlist position not given.\n";
+        delete p;
+      }
       //search for person, calculate points, add to waitlist
 
 
@@ -115,30 +157,65 @@ int main(){
       long int ID;
       cout<<"Enter ID of member to be removed: ";
       cin>>ID;
-      //search for member ID and remove from member list
-
+      mList * current = head;
+      if(current->m.memberID==ID)
+      {
+        head=NULL;
+        delete current;
+      }
+      else if(current->next->m.memberID==ID)
+      {
+        head=current->next;
+        delete current;
+      }
+      else {
+        while(current->next!=NULL){
+          if(current->m.memberID==ID)
+          {
+            mList * p = current->next;
+            current->next=p->next;
+            delete p;
+            break;
+          }
+          current=current->next;
+        }
+        if(current->next==NULL)
+        {
+          if(current->m.memberID==ID) delete current;
+          else cout<<"No such Member ID exists in our database"<<endl;
+        }
+      }
     }
     else if(cmd=='S'){
       char list;
       cout<<"Do you want to view waitlist or member list (W/M)?";
       cin>>list;
-
+      if(list=='M') ShowMList(head);
+      else if(list=='W') ShowWList(waitlist);
+      else cout<<"Invalid option"<<endl;
     }
     else if(cmd=='F'){
       string attribute;
-      int value;
+      cout<<"Enter attribute to be searched (Name, Age)";
+      cin>>attribute;
+      if(attribute=="Name"){
+        string name_search;
+        cout<<"Enter name: ";
+        cin>>name_search;
+        NameSearch(head, name_search);
+      }
+      else if (attribute=="Age"){
+        int age_search;
+        cout<<"Enter age:";
+        cin>>age_search;
+        AgeSearch(head, age_search);
+      }
+      else{
+        cout<<"Attribute not valid.";
+      }
 
     }
 }
-
-
-
-
-
-
-
-
-
 
   WriteCache(numMembers, assignID, head);
   if(numMembers==0) return 0;
