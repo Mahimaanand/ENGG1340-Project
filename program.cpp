@@ -5,12 +5,13 @@
 #include<cstdlib>
 #include<vector>
 #include "member.h"
+#include "extraFunctions.h"
 using namespace std;
 
-struct mList{
-  Member m;
-  mList * next;
-};
+//struct mList{
+//  Member m;
+//  mList * next;
+//};
 
 void WriteCache(int num, long int lastID, mList *h){
   ofstream fout;
@@ -130,19 +131,20 @@ int main(){
        }
 
         else {
-          vector<double>::const_iterator i;
-          for (i=waitlist.begin(); i<waitlist.end();i++){
-            if ((*i).points<(*p).points){
+          //vector<Member>::const_iterator i;
+          int i;
+          for (i=0; i<waitlist.size();i++){
+            if ((*(waitlist.begin()+i)).points<(*p).points){
               break;
             }
           }
-          if (i==waitlist.end()){
+          if (i==waitlist.size()){
             waitlist.push_back(*p);
           }
           else{
-            waitlist.insert(i,*p);
+            waitlist.insert(i+waitlist.begin(),*p);
           }
-          cout<<i-v.begin()+1<<endl;
+          cout<<i+1<<endl;
         }
       }
       else{
@@ -225,5 +227,4 @@ int main(){
     delete p;
   }
   return 0;
-
 }

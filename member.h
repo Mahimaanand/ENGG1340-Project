@@ -1,3 +1,5 @@
+#ifndef MEMBER_H
+#define MEMBER_H
 #include <string>
 using namespace std;
 
@@ -49,3 +51,4 @@ void Member::reassignWeightages(double avg[])
 	}
 	return;
 }
+#endif
