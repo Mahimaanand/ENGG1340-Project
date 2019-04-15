@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <cctype>
 #include "member.h"
@@ -21,7 +22,7 @@ void Member::computePoints()
 
 	for(int i=0; i<=3; i++)
 	{
-		points+=weightages[i]*sportScore[i];
+		points+=(weightages[i]*sportScore[i]);
 	}
 	return;
 }
@@ -38,21 +39,42 @@ bool Member::readInput(string filename)
 	getline(fin, reference);
 	for(int i=0; i<name.length();i++)
 	{
-		if(!(isalpha(name[i])) && name[i]!=' ' && name[i]!='.') return false;
+		if(!(isalpha(name[i])) && name[i]!=' ' && name[i]!='.') {
+			cout<<"Error with name"<<endl;
+			return false;
+		}
 	}
 	for(int i=0; i<reference.length();i++)
 	{
-		if(!(isalpha(reference[i])) && reference[i]!=' ' && reference[i]!='.') return false;
-	}
-	fin>>age;
-	if(age<18) return false;
-	fin>>income;
-	for(int i=0; i<4; i++)
-	{
-		fin>>sportScore[i];
-		if(sportScore[i]>10 || sportScore[i]<0) return false;
+		if(!(isalpha(reference[i])) && reference[i]!=' ' && reference[i]!='.'){
+			cout<<"Error with reference"<<endl;
+			return false;
+		}
 	}
 	string dummy;
+	istringstream iss;
+	getline(fin,dummy);
+	iss.str(dummy);
+	iss>>age;
+	iss.clear();
+	if(age<18) {
+		cout<<"Error with age"<<endl;
+		return false;
+	}
+	getline(fin,dummy);
+	iss.str(dummy);
+	iss>>income;
+	iss.clear();
+	getline(fin, dummy);
+	iss.str(dummy);
+	for(int i=0; i<4; i++)
+	{
+		iss>>sportScore[i];
+		if(sportScore[i]>10 || sportScore[i]<0) {
+			cout<<"Error with sport scores"<<endl;
+			return false;
+		}
+	}
 	if(getline(fin,dummy)) {
 		cout<<"Excess information provided"<<endl;
 		return false;

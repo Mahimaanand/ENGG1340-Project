@@ -30,14 +30,20 @@ void ShowMList(mList * head)
 void ShowWList(const vector<Member> &waitlist)
 {
   ofstream fout;
-  fout.open("Show_Waiting_List");
+  fout.open("Show_Waiting_List.txt");
   vector<Member>::const_iterator i;
   int rank=1;
   fout<<left;
+  if(waitlist.begin()==waitlist.end())
+  {
+  	fout<<"Waitlist is empty";
+  	fout.close();
+  	return;
+  }
   fout<<"Rank "<<setw(30)<<"Name"<<" Points"<<endl;
   for(i=waitlist.begin();i!=waitlist.end();i++,rank++)
   {
-    fout<<setw(4)<<rank<<setw(30)<<(*i).name<<" "<<(*i).points<<endl;
+    fout<<setw(4)<<rank<<" "<<setw(30)<<(*i).name<<" "<<(*i).points<<endl;
   }
   fout.close();
   return;

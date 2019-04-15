@@ -93,6 +93,8 @@ int main(){
   	}
   	Member::reassignWeightages(avg);
   }
+   	for(int i=0;i<4;i++)
+  	Member::weightages[i]=Member::weightages[i]/10.0;
   //Waitlist defined
   vector<Member> waitlist;
   waitlist.reserve(40);
@@ -161,6 +163,11 @@ int main(){
       long int ID;
       cout<<"Enter ID of member to be removed: ";
       cin>>ID;
+      if(numMembers==0)
+      {
+      	cout<<"Member list is empty. Nobody could be removed"<<endl;
+      	continue;
+	  }
       mList * current = head;
       if(current->m.memberID==ID)
       {
