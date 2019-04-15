@@ -59,7 +59,7 @@ bool Member::readInput(string filename)
 	}
 	return true;
 }
-
-int main() {
-	return 0;
-}
+//
+//int main() {
+//	return 0;
+//}

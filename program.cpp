@@ -5,7 +5,9 @@
 #include<cstdlib>
 #include<vector>
 #include "member.h"
+#include "member.cpp"
 #include "extraFunctions.h"
+#include "extraFunctions.cpp"
 using namespace std;
 
 //struct mList{
@@ -99,15 +101,15 @@ int main(){
   //MENU
   int vacPositions = 0;
   char cmd=' ';
+  cout<<"WELCOME TO FALCONKEEP SANCTUARY CLUB.\nChoose one of the following commands to continue:\n";
+  cout<<"1. N: Create new membership positions.\n";
+  cout<<"2. P: Add person to waitlist.\n";
+  cout<<"3. R: Remove person from member list.\n ";
+  cout<<"4. S: Show waitlist(W) or show member list (M).\n";
+  cout<<"5. F: Find all members with a particular attribute.\n";
+  cout<<"6. E: Exit the database.\n";
   while(cmd!='E'){
-    cout<<"WELCOME TO FALCONKEEP SANCTUARY CLUB.\nChoose one of the following commands to continue:\n";
-    cout<<"1. N: Create new membership positions.\n";
-    cout<<"2. P: Add person to waitlist.\n";
-    cout<<"3. R: Remove person from member list.\n ";
-    cout<<"4. S: Show waitlist(W) or show member list (M).\n";
-    cout<<"5. F: Find all members with a particular attribute.\n";
-    cout<<"6. E: Exit the database.\n";
-    cout<<"Your choice: ";
+  	cout<<"Your choice: ";
     cin>>cmd;
     if(cmd=='N'){
       int number;

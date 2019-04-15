@@ -1,3 +1,5 @@
+#ifndef EXTRA_H
+#define EXTRA_H
 #include<vector>
 #include<string>
 #include "member.h"
@@ -19,3 +21,5 @@ int MakePosition(vector<Member>&, int numNewPos, mList *);
 void ShowMList(mList *);
 
 void ShowWList(const vector<Member>&);
+
+#endif

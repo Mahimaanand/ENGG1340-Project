@@ -27,7 +27,7 @@ void ShowMList(mList * head)
   return;
 }
 
-void ShowWList(const vector<Member> waitlist)
+void ShowWList(const vector<Member> &waitlist)
 {
   ofstream fout;
   fout.open("Show_Waiting_List");
@@ -95,7 +95,7 @@ void NameSearch(mList *head, string name)
   cout<<ctr<<" members found"<<endl;
   return;
 }
-
-int main() {
-	return 0;
-}
+//
+//int main() {
+//	return 0;
+//}
