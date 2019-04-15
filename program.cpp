@@ -119,7 +119,7 @@ int main(){
     }
     else if(cmd=='P'){
       string filename;
-      cout<<"Enter filename of person's application form:";
+      cout<<"Enter filename of person's application form: ";
       cin>>filename;
       Member * p = new Member;
       if  ((*p).readInput(filename)){
@@ -189,10 +189,11 @@ int main(){
           else cout<<"No such Member ID exists in our database"<<endl;
         }
       }
+      numMembers--;
     }
     else if(cmd=='S'){
       char list;
-      cout<<"Do you want to view waitlist or member list (W/M)?";
+      cout<<"Do you want to view waitlist or member list (W/M)? ";
       cin>>list;
       if(list=='M') ShowMList(head);
       else if(list=='W') ShowWList(waitlist);
@@ -200,7 +201,7 @@ int main(){
     }
     else if(cmd=='F'){
       string attribute;
-      cout<<"Enter attribute to be searched (Name, Age)";
+      cout<<"Enter attribute to be searched (Name, Age): ";
       cin>>attribute;
       if(attribute=="Name"){
         string name_search;
@@ -210,16 +211,15 @@ int main(){
       }
       else if (attribute=="Age"){
         int age_search;
-        cout<<"Enter age:";
+        cout<<"Enter age: ";
         cin>>age_search;
         AgeSearch(head, age_search);
       }
       else{
-        cout<<"Attribute not valid.";
+        cout<<"Attribute not valid."<<endl;
       }
-
     }
-}
+  }
 
   WriteCache(numMembers, assignID, head);
   if(numMembers==0) return 0;
