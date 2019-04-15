@@ -6,3 +6,6 @@ program.o: extraFunctions.h member.h program.cpp
 	g++ -c program.cpp
 finalExecutable: program.o member.o extraFunctions.o
 	g++ $^ -o $@
+
+clean:
+	rm program.o member.o extraFunctions.o
