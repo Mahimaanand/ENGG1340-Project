@@ -110,7 +110,7 @@ int main(){
   cout<<"WELCOME TO FALCONKEEP SANCTUARY CLUB.\nChoose one of the following commands to continue:\n";
   cout<<"1. N: Create new membership positions.\n";
   cout<<"2. P: Add person to waitlist.\n";
-  cout<<"3. R: Remove person from member list.\n ";
+  cout<<"3. R: Remove person from member list.\n";
   cout<<"4. S: Show waitlist(W) or show member list (M).\n";
   cout<<"5. F: Find all members with a particular attribute.\n";
   cout<<"6. E: Exit the database.\n";
