@@ -97,7 +97,7 @@ int main(){
    	for(int i=0;i<4;i++)
   	Member::weightages[i]=Member::weightages[i]/10.0;
   	
-  	cout<<"Program ready!"<<endl;
+  	cout<<"Program ready!"<<endl<<endl;
   //Waitlist defined
   vector<Member> waitlist;
   waitlist.reserve(40);
@@ -106,6 +106,7 @@ int main(){
   //MENU
   int vacPositions = 0;
   char cmd=' ';
+  cout<<"----------------------------------------------------------------------------"<<endl;
   cout<<"WELCOME TO FALCONKEEP SANCTUARY CLUB.\nChoose one of the following commands to continue:\n";
   cout<<"1. N: Create new membership positions.\n";
   cout<<"2. P: Add person to waitlist.\n";
@@ -113,6 +114,7 @@ int main(){
   cout<<"4. S: Show waitlist(W) or show member list (M).\n";
   cout<<"5. F: Find all members with a particular attribute.\n";
   cout<<"6. E: Exit the database.\n";
+  cout<<"----------------------------------------------------------------------------"<<endl;
   while(cmd!='E'){
   	cout<<"Your choice: ";
     cin>>cmd;
@@ -159,6 +161,13 @@ int main(){
           }
           cout<<i+1<<endl;
         }
+        if(vacPositions>0) {
+        	cout<<"Member added"<<endl;
+        	vacPositions+=MakePosition(waitlist, 1, head, assignID);
+        	vacPositions--;
+        	numMembers++;
+        	cout<<"Number of vacant positions = "<<vacPositions<<endl;
+		}
       }
       else{
         cout<<"Data is not valid. Waitlist position not given.\n";
@@ -211,6 +220,13 @@ int main(){
         }
       }
       numMembers--;
+      cout<<"Members added:"<<endl;
+      long int * temp = new long int;
+      *temp=assignID;
+      vacPositions+=MakePosition(waitlist, 1, head, assignID);
+      numMembers+=assignID-(*temp);
+      delete temp;
+      cout<<"Number of vacant positions = "<<vacPositions<<endl;
     }
     else if(cmd=='S'){
       char list;
