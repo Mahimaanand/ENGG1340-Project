@@ -44,6 +44,7 @@ int main(){
   mList * head = NULL;
   int numMembers;
   long int assignID;
+  cout<<"Reading member list...";
   ifstream fin;
   fin.open("CacheMemberList.txt");
   string tempVal;
@@ -52,7 +53,6 @@ int main(){
   iss.str(tempVal);
   iss>>numMembers;
   iss>>assignID;
-  //assignID++;  ADD BASED ON HOW WE'RE ASSIGNING THE MEMBER ID TO MEMBERS (ADDITION BEFORE/AFTER ASSIGNNING)
   iss.clear();
   for(int i=1;i<=numMembers;i++){ //READING CACHE
     mList * p = new mList;
@@ -76,6 +76,7 @@ int main(){
     iss.clear();
   }
   fin.close();
+  cout<<"Calculaing sport score ratings...";
   mList * current = head;
   double avg[4];
   if(numMembers==0)
@@ -95,6 +96,8 @@ int main(){
   }
    	for(int i=0;i<4;i++)
   	Member::weightages[i]=Member::weightages[i]/10.0;
+  	
+  	cout<<"Program ready!"<<endl;
   //Waitlist defined
   vector<Member> waitlist;
   waitlist.reserve(40);
@@ -117,7 +120,13 @@ int main(){
       int number;
       cout<<"Enter number of new positions: ";
       cin>>number;
-
+      cout<<"Members added:"<<endl;
+      long int * temp = new long int;
+      *temp=assignID;
+      vacPositions+=MakePosition(waitlist, number, head, assignID);
+      numMembers+=assignID-(*temp);
+      delete temp;
+      cout<<"Number of vacant positions = "<<vacPositions<<endl;
     }
     else if(cmd=='P'){
       string filename;
@@ -169,31 +178,36 @@ int main(){
       	continue;
 	  }
       mList * current = head;
-      if(current->m.memberID==ID)
+      if(current->m.memberID==ID) //member is 1st in member list
       {
-        head=NULL;
-        delete current;
-      }
-      else if(current->next->m.memberID==ID)
-      {
+      	cout<<"Removed "<<current->m.name<<endl;
         head=current->next;
         delete current;
       }
       else {
-        while(current->next!=NULL){
-          if(current->m.memberID==ID)
+      	int flag=0;
+        while(current->next!=NULL) { //general case
+          mList * p = current->next;
+          if(p->m.memberID==ID)
           {
-            mList * p = current->next;
             current->next=p->next;
+            cout<<"Removed "<<p->m.name<<endl;
             delete p;
+            flag=1;
             break;
           }
           current=current->next;
         }
-        if(current->next==NULL)
+        if(flag==0) //member is last in member list
         {
-          if(current->m.memberID==ID) delete current;
-          else cout<<"No such Member ID exists in our database"<<endl;
+          if(current->m.memberID==ID) {
+          	cout<<"Removed "<<current->m.name<<endl;
+		  	delete current;
+		  }
+          else{
+		  	cout<<"No such Member ID exists in our database"<<endl;
+		  	continue;
+		  }
         }
       }
       numMembers--;
@@ -226,12 +240,17 @@ int main(){
         cout<<"Attribute not valid."<<endl;
       }
     }
+    else
+	if(cmd!='E') cout<<"Invalid option entered"<<endl;
   }
-
+  
+  cout<<"Writing member list to cache...";
   WriteCache(numMembers, assignID, head);
+  cout<<"Program ended"<<endl;
   if(numMembers==0) return 0;
   while(head!=NULL) {
-    mList * p = head;
+    mList * p = new mList;
+	p=head;
     head = head->next;
     delete p;
   }

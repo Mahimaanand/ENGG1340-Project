@@ -16,7 +16,7 @@ void AgeSearch(mList *,int);
 
 bool SearchReference(mList *, string);
 
-int MakePosition(vector<Member>&, int numNewPos, mList *);
+int MakePosition(vector<Member> &waitlist, int numNewPos, mList * &head, long int &mID);
 
 void ShowMList(mList *);
 

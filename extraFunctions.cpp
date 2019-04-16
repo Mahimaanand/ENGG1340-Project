@@ -7,6 +7,31 @@
 #include "extraFunctions.h"
 using namespace std;
 
+int MakePosition(vector<Member> &waitlist, int numNewPos, mList * &head, long int &mID)
+{
+	cout<<left;
+	int numVacPosition=numNewPos;
+	while(waitlist.begin()!=waitlist.end() && numVacPosition!=0)
+	{
+		mList *p = new mList;
+		
+		p->m.name=waitlist.at(0).name;
+		p->m.memberID=mID++;
+		p->m.age=waitlist.at(0).age;
+		p->m.income=waitlist.at(0).income;
+		for(int i=0;i<=3;i++) p->m.sportScore[i]=waitlist.at(0).sportScore[i];
+		waitlist.erase(waitlist.begin());
+		
+		numVacPosition--;
+		p->next=head;
+		head=p;
+		
+		cout<<setw(30)<<p->m.name<<" "<<p->m.memberID<<endl;
+	}
+	if(numVacPosition==numNewPos) cout<<"No members added."<<endl;
+	return numVacPosition;
+}
+
 void ShowMList(mList * head)
 {
   mList * current = head;
