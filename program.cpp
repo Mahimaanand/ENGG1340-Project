@@ -37,13 +37,18 @@ void WriteCache(int num, long int lastID, mList *h){
   }
   fout.close();
 }
-double SportsAvg(double array[]){
-  double sum=0, average;
-  for (int i=0;i<4;i++){
-    sum+=array[i];
+void SportsAvg(mList * head, double average[]){
+  double sum=0;
+  mList * current = head;
+  while(current!=NULL){
+    for (int 0=0;i<4;i++){
+      average[i]+=current->m.sportScore[i];
+      current=current->next;
+    }
   }
-  average = sum/4;
-  return average;
+  for (int i=0;i<4;i++){
+    average[i]=average[i]/4;
+  }
 }
 
 
