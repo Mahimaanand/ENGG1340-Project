@@ -39,14 +39,16 @@ void WriteCache(int num, long int lastID, mList *h){
 }
 void SportsAvg(mList * head, double average[]){
   mList * current = head;
+  int ctr=0;
   while(current!=NULL){
     for (int i=0;i<4;i++){
       average[i]+=current->m.sportScore[i];
-      current=current->next;
+    current=current->next;
+    ctr++;
     }
   }
   for (int i=0;i<4;i++){
-    average[i]=average[i]/4;
+    average[i]=average[i]/ctr;
   }
 }
 
@@ -99,12 +101,7 @@ int main(){
   }
   else
   {
-  	while(current!=NULL)
-  	{
-  		for(int i=0; i<4; i++)
-  	 	 avg[i]+=current->m.sportScore[i]/numMembers;
-  		current=current->next;
-  	}
+  	SportsAvg(head, avg);
   	Member::reassignWeightages(avg);
   }
    	for(int i=0;i<4;i++)
