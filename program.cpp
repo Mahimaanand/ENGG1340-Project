@@ -37,6 +37,15 @@ void WriteCache(int num, long int lastID, mList *h){
   }
   fout.close();
 }
+double SportsAvg(double array[]){
+  double sum=0, average;
+  for (int i=0;i<4;i++){
+    sum+=array[i];
+  }
+  average = sum/4;
+  return average;
+}
+
 
 //double weightages[4] = {10,10,10,10};
 int main(){
@@ -44,7 +53,7 @@ int main(){
   mList * head = NULL;
   int numMembers;
   long int assignID;
-  cout<<"Reading member list...";
+  cout<<"Reading the member list...";
   ifstream fin;
   fin.open("CacheMemberList.txt");
   string tempVal;
@@ -76,7 +85,7 @@ int main(){
     iss.clear();
   }
   fin.close();
-  cout<<"Calculaing sport score ratings...";
+  cout<<"Calculating sport score ratings...";
   mList * current = head;
   double avg[4];
   if(numMembers==0)
@@ -96,7 +105,7 @@ int main(){
   }
    	for(int i=0;i<4;i++)
   	Member::weightages[i]=Member::weightages[i]/10.0;
-  	
+
   	cout<<"Program ready!"<<endl<<endl;
   //Waitlist defined
   vector<Member> waitlist;
@@ -109,10 +118,10 @@ int main(){
   cout<<"----------------------------------------------------------------------------"<<endl;
   cout<<"WELCOME TO FALCONKEEP SANCTUARY CLUB.\nChoose one of the following commands to continue:\n";
   cout<<"1. N: Create new membership positions.\n";
-  cout<<"2. P: Add person to waitlist.\n";
-  cout<<"3. R: Remove person from member list.\n";
-  cout<<"4. S: Show waitlist(W) or show member list (M).\n";
-  cout<<"5. F: Find all members with a particular attribute.\n";
+  cout<<"2. P: Add a person to the waitlist.\n";
+  cout<<"3. R: Remove a person from the member list.\n";
+  cout<<"4. S: Show the waitlist(W) or show the member list (M).\n";
+  cout<<"5. F: Find all the members with a particular attribute.\n";
   cout<<"6. E: Exit the database.\n";
   cout<<"----------------------------------------------------------------------------"<<endl;
   while(cmd!='E'){
@@ -120,7 +129,7 @@ int main(){
     cin>>cmd;
     if(cmd=='N'){
       int number;
-      cout<<"Enter number of new positions: ";
+      cout<<"Enter the number of new positions: ";
       cin>>number;
       cout<<"Members added:"<<endl;
       long int * temp = new long int;
@@ -170,7 +179,7 @@ int main(){
 		}
       }
       else{
-        cout<<"Data is not valid. Waitlist position not given.\n";
+        cout<<"The data provided is invalid. Waitlist position not given.\n";
         delete p;
       }
       //search for person, calculate points, add to waitlist
@@ -230,7 +239,7 @@ int main(){
     }
     else if(cmd=='S'){
       char list;
-      cout<<"Do you want to view waitlist or member list (W/M)? ";
+      cout<<"Do you want to view the waitlist or the member list (W/M)? ";
       cin>>list;
       if(list=='M') ShowMList(head);
       else if(list=='W') ShowWList(waitlist);
@@ -253,13 +262,13 @@ int main(){
         AgeSearch(head, age_search);
       }
       else{
-        cout<<"Attribute not valid."<<endl;
+        cout<<"The attribute is not valid."<<endl;
       }
     }
     else
 	if(cmd!='E') cout<<"Invalid option entered"<<endl;
   }
-  
+
   cout<<"Writing member list to cache...";
   WriteCache(numMembers, assignID, head);
   cout<<"Program ended"<<endl;

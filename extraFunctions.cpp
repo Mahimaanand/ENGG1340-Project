@@ -14,21 +14,21 @@ int MakePosition(vector<Member> &waitlist, int numNewPos, mList * &head, long in
 	while(waitlist.begin()!=waitlist.end() && numVacPosition!=0)
 	{
 		mList *p = new mList;
-		
+
 		p->m.name=waitlist.at(0).name;
 		p->m.memberID=mID++;
 		p->m.age=waitlist.at(0).age;
 		p->m.income=waitlist.at(0).income;
 		for(int i=0;i<=3;i++) p->m.sportScore[i]=waitlist.at(0).sportScore[i];
 		waitlist.erase(waitlist.begin());
-		
+
 		numVacPosition--;
 		p->next=head;
 		head=p;
-		
+
 		cout<<setw(30)<<p->m.name<<" "<<p->m.memberID<<endl;
 	}
-	if(numVacPosition==numNewPos) cout<<"No members added."<<endl;
+	if(numVacPosition==numNewPos) cout<<"No members have been added."<<endl;
 	return numVacPosition;
 }
 
@@ -38,7 +38,7 @@ void ShowMList(mList * head)
   ofstream fout;
   fout.open("Show_Member_List.txt");
   if(current==NULL) {
-    fout<<"Memberlist is empty";
+    fout<<"The memberlist is empty";
     return;
   }
   fout<<left;
@@ -61,7 +61,7 @@ void ShowWList(const vector<Member> &waitlist)
   fout<<left;
   if(waitlist.begin()==waitlist.end())
   {
-  	fout<<"Waitlist is empty";
+  	fout<<"The waitlist is empty";
   	fout.close();
   	return;
   }
@@ -101,7 +101,7 @@ void AgeSearch(mList *head, int age)
     }
     current=current->next;
   }
-  if(ctr==0) fout<<"No members found"<<endl;
+  if(ctr==0) fout<<"No members were found"<<endl;
   cout<<ctr<<" members found"<<endl;
   return;
 }
