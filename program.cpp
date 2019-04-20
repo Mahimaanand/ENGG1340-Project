@@ -41,11 +41,10 @@ void SportsAvg(mList * head, double average[]){
   mList * current = head;
   int ctr=0;
   while(current!=NULL){
-    for (int i=0;i<4;i++){
+    for (int i=0;i<4;i++)
       average[i]+=current->m.sportScore[i];
     current=current->next;
     ctr++;
-    }
   }
   for (int i=0;i<4;i++){
     average[i]=average[i]/ctr;
