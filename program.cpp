@@ -39,11 +39,12 @@ void WriteCache(int num, long int lastID, mList *h){
 }
 void SportsAvg(mList * head, double average[]){
   mList * current = head;
-  int ctr=0;
+  int ctr=1;
   while(current!=NULL){
-    for (int i=0;i<4;i++)
+    for (int i=0;i<4;i++){
       average[i]+=current->m.sportScore[i];
-    current=current->next;
+    }
+      current=current->next;
     ctr++;
   }
   for (int i=0;i<4;i++){
@@ -273,7 +274,7 @@ int main(){
       cout<<"Squash: "<<avg[2]<<endl;
       cout<<"Snooker: "<<avg[3]<<endl;
     }
-    
+
     else
 	if(cmd!='E') cout<<"Invalid option entered"<<endl;
 }//while loop ends
