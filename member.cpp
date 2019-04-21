@@ -1,3 +1,5 @@
+#ifndef MEMBER_CPP
+#define MEMBER_CPP
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -81,6 +83,7 @@ bool Member::readInput(string filename)
 	}
 	return true;
 }
+#endif
 //
 //int main() {
 //	return 0;

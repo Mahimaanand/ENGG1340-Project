@@ -280,9 +280,14 @@ int main(){
 
     else if(cmd!='E') cout<<"Invalid option entered"<<endl;
     if (numMembers-tempNum>=5){
+      cout<<"Recalculating average...";
       SportsAvg(head, avg);
+      cout<<"Adjusting weightages...";
       Member::reassignWeightages(avg);
+      cout<<"Adjusting waitlist postions...";
       ReassignWaitlist(waitlist);
+      cout<<"Changed!"<<endl;
+      tempNum=numMembers;
     }
 }//while loop ends
 

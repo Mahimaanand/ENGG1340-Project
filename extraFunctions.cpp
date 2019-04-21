@@ -4,6 +4,7 @@
 #include<fstream>
 #include<iomanip>
 #include "member.h"
+#include "member.cpp"
 #include "extraFunctions.h"
 using namespace std;
 
@@ -129,13 +130,13 @@ void NameSearch(mList *head, string name)
 
 void ReassignWaitlist(vector<Member>& v)
 {
-	for (int i=0;v.begin()+i!=v.end();i++){
+	for (int i=0;i<v.size();i++){
 		v[i].computePoints();
 	}
 	bool flag = true;
 	while(flag){
 		flag=false;
-		for (int i=i;v.begin()+i!=v.end();i++){
+		for (int i=1;i<v.size();i++){
 			if (v[i-1].points<v[i].points){
 				Member temp = v[i-1];
 				v[i-1]=v[i];
