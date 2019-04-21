@@ -126,6 +126,25 @@ void NameSearch(mList *head, string name)
   cout<<ctr<<" members found"<<endl;
   return;
 }
+
+void ReassignWaitlist(vector<Member>& v)
+{
+	for (int i=0;v.begin()+i!=v.end();i++){
+		v[i].computePoints();
+	}
+	bool flag = true;
+	while(flag){
+		flag=false;
+		for (int i=i;v.begin()+i!=v.end();i++){
+			if (v[i-1].points<v[i].points){
+				Member temp = v[i-1];
+				v[i-1]=v[i];
+				v[i]=temp;
+				flag = true;
+			}
+		}
+	}
+}
 //
 //int main() {
 //	return 0;

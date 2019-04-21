@@ -22,4 +22,6 @@ void ShowMList(mList *);
 
 void ShowWList(const vector<Member>&);
 
+void ReassignWaitlist(vector<Member>&);
+
 #endif

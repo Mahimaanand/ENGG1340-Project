@@ -93,6 +93,7 @@ int main(){
     iss.clear();
   }
   fin.close();
+  int tempNum = numMembers;
   cout<<"Calculating sport score ratings...";
   mList * current = head;
   double avg[4]={0,0,0,0};
@@ -277,8 +278,12 @@ int main(){
       cout<<"Snooker: "<<avg[3]<<endl;
     }
 
-    else
-	if(cmd!='E') cout<<"Invalid option entered"<<endl;
+    else if(cmd!='E') cout<<"Invalid option entered"<<endl;
+    if (numMembers-tempNum>=5){
+      SportsAvg(head, avg);
+      Member::reassignWeightages(avg);
+      ReassignWaitlist(waitlist);
+    }
 }//while loop ends
 
   cout<<"Writing member list to cache...";
