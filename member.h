@@ -5,7 +5,7 @@ using namespace std;
 
 class Member {
 	public:
-		int points;
+		double points;
 		string name, reference;
 		long int memberID;
 		bool refExist;
