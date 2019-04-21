@@ -122,7 +122,8 @@ int main(){
   cout<<"3. R: Remove a person from the member list.\n";
   cout<<"4. S: Show the waitlist(W) or show the member list (M).\n";
   cout<<"5. F: Find all the members with a particular attribute.\n";
-  cout<<"6. E: Exit the database.\n";
+  cout<<"6. A: Display the average sports scores of the member list.\n";
+  cout<<"7. E: Exit the database.\n";
   cout<<"----------------------------------------------------------------------------"<<endl;
   while(cmd!='E'){
   	cout<<"Your choice: ";
@@ -265,9 +266,17 @@ int main(){
         cout<<"The attribute is not valid."<<endl;
       }
     }
+    else if (cmd=='A'){
+      SportsAvg(head, avg);
+      cout<<"Golf: "<<avg[0]<<endl;
+      cout<<"Swimming: "<<avg[1]<<endl;
+      cout<<"Squash: "<<avg[2]<<endl;
+      cout<<"Snooker: "<<avg[3]<<endl;
+    }
+    
     else
 	if(cmd!='E') cout<<"Invalid option entered"<<endl;
-  }
+}//while loop ends
 
   cout<<"Writing member list to cache...";
   WriteCache(numMembers, assignID, head);

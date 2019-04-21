@@ -47,9 +47,8 @@ The following commands would be made available:
 2. Add filename: Adds person (whose membership form is stored in the file) to waiting list at appropriate position based on points. It will print his/her points and current ranking in waiting list.
 3. Remove ID: Removes person whose ID number is given; that position is filled up by the top member of waiting list.
 4. Show w/m: (W)Outputs entire waitlist along with points and ranking into a file. (M)Outputs member list along with member ID into a file.
-5. Find attribute: Prompts the user to search by name or age. It then displays a list of members that were found with the provided attribute along with their member IDs.
-6. Display average: Shows the average sports scores of the current member base.
-7. Exit: Exits the program.
+5. Find attribute: Prompts the user to search by name or age. It then displays a list of members that were found with the provided attribute along with their member IDs. 
+6. Exit: Exits the program.
 
 ## Notable Features
 This program will dynamically alter the weightages of the Club Skill Sports so that the Falconkeep Sanctuary Club can retain its sporting superiority and reputation of being an atheletic forerunner. If there is a deficit of skill in a certain sport category, the program would alter the weightages to give an edge to those members that could fill in the deficit.
