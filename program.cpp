@@ -38,15 +38,17 @@ void WriteCache(int num, long int lastID, mList *h){
   fout.close();
 }
 void SportsAvg(mList * head, double average[]){
+  for(int i=0;i<4;i++) average[i]=0;
   mList * current = head;
   int ctr=1;
   while(current!=NULL){
     for (int i=0;i<4;i++){
       average[i]+=current->m.sportScore[i];
     }
-      current=current->next;
+    current=current->next;
     ctr++;
   }
+  if(ctr!=1) ctr--;
   for (int i=0;i<4;i++){
     average[i]=average[i]/ctr;
   }
@@ -93,7 +95,7 @@ int main(){
   fin.close();
   cout<<"Calculating sport score ratings...";
   mList * current = head;
-  double avg[4];
+  double avg[4]={0,0,0,0};
   if(numMembers==0)
   {
   	for(int i=0;i<4;i++)
