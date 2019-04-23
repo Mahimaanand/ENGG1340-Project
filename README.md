@@ -11,10 +11,7 @@ Prospective members are required to fill a form on basis of which they will be a
     Age:
     Income:
     Club Sport Skills:
-      Golf-
-      Swimming-
-      Squash-
-      Snooker-
+      Golf  Swimming    Squash  Snooker
   
 ### Point Allotment System:
 The four criteria on which the prospective member would be assessed are Reference, Age, Income, and Club Sports Skills
@@ -39,7 +36,7 @@ The weightages are as follows (out of a total of 100):
       >1 million HKD: 30 points
      
      Club Sport Skills (40 points):
-      Each sport will be rated out of 10 (initially*)
+      Each sport will be rated out of 10 (initially)
       
 ## User Interface
 The following commands would be made available:
@@ -59,3 +56,4 @@ This project would come with an existing member list (stored in a file). When th
 
 ## Assumptions
 At the start of the program, the waiting list would be empty and this waiting list would be discarded at the time of exiting.
+The last line for each file of person to be added to waiting list must end without a '\n' character(i.e the line with sport score weightages should end as is, without a newline after it)
