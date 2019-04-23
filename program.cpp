@@ -94,7 +94,7 @@ int main(){
   }
   fin.close();
   int tempNum = numMembers;
-  cout<<"Calculating sport score ratings...";
+  cout<<"Calculating sport score ratings..."<<endl;
   mList * current = head;
   double avg[4]={0,0,0,0};
   if(numMembers==0)
@@ -107,10 +107,12 @@ int main(){
   	SportsAvg(head, avg);
   	Member::reassignWeightages(avg);
   }
-   	for(int i=0;i<4;i++)
+  for(int i=0;i<4;i++) {
   	Member::weightages[i]=Member::weightages[i]/10.0;
-
-  	cout<<"Program ready!"<<endl<<endl;
+  	cout<<Member::weightages[i]<<" ";
+  }
+  cout<<endl;
+  cout<<"Program ready!"<<endl<<endl;
   //Waitlist defined
   vector<Member> waitlist;
   waitlist.reserve(40);

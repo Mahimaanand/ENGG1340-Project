@@ -17,10 +17,10 @@ void Member::computePoints()
 	else if(age<40) points+=20;
 	else if(age<50) points+=10;
 
-	if(income>1000000) points+=30;//INCOME
-	else if(income>750000) points+=20;
-	else if(income>500000) points+=15;
-	else if(income>400000) points+=10;
+	if(income>=1000000) points+=30;//INCOME
+	else if(income>=750000) points+=20;
+	else if(income>=500000) points+=15;
+	else if(income>=400000) points+=10;
 
 	for(int i=0; i<=3; i++)
 	{
