@@ -66,7 +66,7 @@ void ShowWList(const vector<Member> &waitlist)
   cout<<left;
   if(waitlist.begin()==waitlist.end())
   {
-  	cout<<"The waitlist is empty";
+  	cout<<"The waitlist is empty\n";
   	//fout.close();
   	return;
   }
