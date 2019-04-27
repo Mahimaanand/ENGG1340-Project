@@ -100,15 +100,12 @@ int main(){
   if(numMembers==0)
   {
   	for(int i=0;i<4;i++)
-  	Member::weightages[i]=10.0;
+  	Member::weightages[i]=1.0;
   }
   else
   {
   	SportsAvg(head, avg);
   	Member::reassignWeightages(avg);
-  }
-  for(int i=0;i<4;i++) {
-  	Member::weightages[i]=Member::weightages[i]/10.0;
   }
   //cout<<endl;
   cout<<"Program ready!"<<endl<<endl;
