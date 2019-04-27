@@ -39,14 +39,18 @@ void ShowMList(mList * head)
   ofstream fout;
   fout.open("Show_Member_List.txt");
   if(current==NULL) {
+    cout<<"The memberlist is empty"<<endl;
     fout<<"The memberlist is empty";
     return;
   }
   fout<<left;
+  cout<<left;
   fout<<setw(30)<<"NAME"<<" MEMBER ID"<<endl;
+  cout<<setw(30)<<"NAME"<<" MEMBER ID"<<endl;
   while(current!=NULL)
   {
     fout<<setw(30)<<current->m.name<<" "<<current->m.memberID<<endl;
+    cout<<setw(30)<<current->m.name<<" "<<current->m.memberID<<endl;
     current=current->next;
   }
   fout.close();
@@ -55,23 +59,23 @@ void ShowMList(mList * head)
 
 void ShowWList(const vector<Member> &waitlist)
 {
-  ofstream fout;
-  fout.open("Show_Waiting_List.txt");
+  //ofstream fout;
+  //fout.open("Show_Waiting_List.txt");
   vector<Member>::const_iterator i;
   int rank=1;
-  fout<<left;
+  cout<<left;
   if(waitlist.begin()==waitlist.end())
   {
-  	fout<<"The waitlist is empty";
-  	fout.close();
+  	cout<<"The waitlist is empty";
+  	//fout.close();
   	return;
   }
-  fout<<"Rank "<<setw(30)<<"Name"<<" Points"<<endl;
+  cout<<"Rank "<<setw(30)<<"Name"<<" Points"<<endl;
   for(i=waitlist.begin();i!=waitlist.end();i++,rank++)
   {
-    fout<<setw(4)<<rank<<" "<<setw(30)<<(*i).name<<" "<<(*i).points<<endl;
+    cout<<setw(4)<<rank<<" "<<setw(30)<<(*i).name<<" "<<(*i).points<<endl;
   }
-  fout.close();
+  //fout.close();
   return;
 }
 
@@ -89,20 +93,20 @@ bool SearchReference(mList *head, string name)
 void AgeSearch(mList *head, int age)
 {
   mList *current=head;
-  ofstream fout;
-  fout.open("Age_Output.txt");
-  fout<<"Age="<<age<<endl;
+  //ofstream fout;
+  //fout.open("Age_Output.txt");
+  //fout<<"Age="<<age<<endl;
   int ctr=0;
-  fout<<left;
+  cout<<left;
   while(current!=NULL)
   {
     if(current->m.age==age) {
       ctr++;
-      fout<<setw(2)<<ctr<<" "<<setw(30)<<current->m.name<<" "<<current->m.memberID<<endl;
+      cout<<setw(2)<<ctr<<" "<<setw(30)<<current->m.name<<" "<<current->m.memberID<<endl;
     }
     current=current->next;
   }
-  if(ctr==0) fout<<"No members were found"<<endl;
+  if(ctr==0) cout<<"No members were found"<<endl<<endl;
   cout<<ctr<<" members found"<<endl;
   return;
 }
@@ -110,20 +114,20 @@ void AgeSearch(mList *head, int age)
 void NameSearch(mList *head, string name)
 {
   mList *current=head;
-  ofstream fout;
-  fout.open("Name_Output.txt");
-  fout<<"Name="<<name<<endl;
+  //ofstream fout;
+  //fout.open("Name_Output.txt");
+  //fout<<"Name="<<name<<endl;
   int ctr=0;
-  fout<<left;
+  cout<<left;
   while(current!=NULL)
   {
     if(current->m.name==name) {
       ctr++;
-      fout<<setw(2)<<ctr<<" "<<setw(30)<<current->m.name<<" "<<current->m.memberID<<endl;
+      cout<<setw(2)<<ctr<<" "<<setw(30)<<current->m.name<<" "<<current->m.memberID<<endl;
     }
     current=current->next;
   }
-  if(ctr==0) fout<<"No members found"<<endl;
+  if(ctr==0) cout<<"No members found"<<endl<<endl;
   cout<<ctr<<" members found"<<endl;
   return;
 }
