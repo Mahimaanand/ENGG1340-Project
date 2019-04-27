@@ -109,7 +109,6 @@ int main(){
   }
   for(int i=0;i<4;i++) {
   	Member::weightages[i]=Member::weightages[i]/10.0;
-  	cout<<Member::weightages[i]<<" ";
   }
   cout<<endl;
   cout<<"Program ready!"<<endl<<endl;

@@ -39,7 +39,7 @@ void Member::reassignWeightages(double avg[])
 	{
 		for(int i=0;i<4;i++)
 		{
-			if(avg[i]==0) weightages[i]=40.0/ctr;
+			if(avg[i]==0) weightages[i]=4.0/ctr;
 			else weightages[i]=0;
 		}
 		return;
@@ -47,7 +47,7 @@ void Member::reassignWeightages(double avg[])
 	for(int i=0; i<4; i++)
 	{
 		weightages[i]=1/avg[i];
-		weightages[i]=weightages[i]*40/sum;//normalising inverse of average to find final weightage
+		weightages[i]=weightages[i]*4/sum;//normalising inverse of average to find final weightage
 	}
 	return;
 }
