@@ -43,7 +43,7 @@ The following commands would be made available:
 1. Make N: Creates N new membership positions that get filled up by the first N members of the waiting list. Outputs the name of members who are added, their member IDs, and the number of vacant positions (if any).
 2. Add filename: Adds person (whose membership form is stored in the file) to waiting list at appropriate position based on points. It will print his/her points and current ranking in waiting list.
 3. Remove ID: Removes person whose ID number is given; that position is filled up by the top member of waiting list.
-4. Show w/m: (W)Outputs entire waitlist along with points and ranking into a file. (M)Outputs member list along with member ID into a file.
+4. Show w/m: (W)Outputs entire waitlist along with points and ranking. (M)Outputs member list along with member ID on console and into a file.
 5. Find attribute: Prompts the user to search by name or age. It then displays a list of members that were found with the provided attribute along with their member IDs. 
 6. Exit: Exits the program.
 
